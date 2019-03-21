@@ -7,7 +7,7 @@ import torch.nn as nn
 import torch.nn.functional as F
 import torchvision.models as models
 
-RESNET_PRETRAINED_PATH = '/home/devin/Documents/courses/cs591/BostonStreetCaster/deeplabv3/pretrained_models/resnet/'
+RESNET_PRETRAINED_PATH = '/home/devin/Documents/courses/cs591/BostonStreetCaster/segment_images/deeplabv3/pretrained_models/resnet/'
 
 def make_layer(block, in_channels, channels, num_blocks, stride=1, dilation=1):
     strides = [stride] + [1]*(num_blocks - 1) # (stride == 2, num_blocks == 4 --> strides == [2, 1, 1, 1])

@@ -3,6 +3,7 @@ import PIL.Image as Image
 import numpy as np
 import cv2
 from tqdm import tqdm
+import random
 
 
 def crop_img_to_sidewalk(label_img, img):
@@ -61,7 +62,7 @@ def create_sidewalk_segment(outputs, imgs, directory):
         overlayed_img = pred_label_img_color  # 0.35*img + 0.65*
         overlayed_img = overlayed_img.astype(np.uint8)
 
-        img_name = directory + 'segment_' + str(i) + '.png'
+        img_name = directory + 'segment_' + str(random.randint(0, 1000000)) + '.png'
         cv2.imwrite(img_name, overlayed_img)  # i was img_id
         white_to_transparent(img_name)
 
