@@ -47,7 +47,13 @@ All the programs are developed under Python3.7, and requre these external librar
 * `geopy`, library for geocoding and distance computation
 * `PyGeodesy`, library for geodesy operations
 
-Running `python3.7 pip install dependencies.txt` will install above libraries, then follow [this](http://toblerity.org/rtree/install.html) instruction to have `libspatialindex` installed. For macOS users, run `brew install spatialindex` through `homebrew` will install this package.
+First, run this command to install all dependencies:
+
+```
+python3.7 -m pip install -r dependencies.txt
+```
+
+Then follow [this](http://toblerity.org/rtree/install.html) instruction to have `libspatialindex` installed. For macOS users (which is not covered from official website), run `brew install spatialindex` through `homebrew` to install this package.
 
 ### How to run
 #### Coordination Conversion
