@@ -8,12 +8,13 @@ import os, sys
 import json
 import tools.streetview_retrieval as sr
 
-def fetch_sidewalk_images(query_file, auth_path, tag, verbosity=False):
+def fetch_sidewalk_images(query_file, auth_path, output_path, tag, verbosity=False):
     """ Obtain images from sample information provided in run.py.
 
         Args:
             query_file - (str) File path for query information.
             auth_path - (str) File path for Google API's auth keys.
+            out_path - (str) Output path for returned images.
             tag - (str) Prefix for output images
             verbosity - (bool) Verbosity settings for StreetviewQueryToolset
     """
@@ -31,17 +32,17 @@ def fetch_sidewalk_images(query_file, auth_path, tag, verbosity=False):
                     break
 
 def run():
-    if len(sys.argv) < 4 or (len(sys.argv) == 5 and "-v" not in sys.argv):
-        print("Usage:\n  python3.7 sample_retrive.py QUERY_PATH AUTH_PATH FILE_PREFIX [-v]")
+    if len(sys.argv) < 5 or (len(sys.argv) == 6 and "-v" not in sys.argv):
+        print("Usage:\n  python3.7 sample_retrive.py QUERY_PATH AUTH_PATH OUT_PATH FILE_PREFIX [-v]")
         return
     arguments = [i for i in sys.argv[1:]]
-    if len(argument) == 4:
+    if len(argument) == 5:
         _ = argument.pop(argument.index("-v"))
         verbosity = True
     else:
         verbosity = False
-    query_file, auth_path, tag = arguments
-    fetch_sidewalk_images(query_file, auth_path, tag, verbosity)
+    query_file, auth_path, out_path, tag = arguments
+    fetch_sidewalk_images(query_file, auth_path, out_path, tag, verbosity)
 
 
 if __name__ == "__main__":
