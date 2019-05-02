@@ -38,10 +38,26 @@ Also, the assumptions we used for generating camera settings can fail in some ca
 
 ### Dependencies
 
+All the programs are developed under Python3.7, and requre these external libraries other than built-ins:
+
 * `requests`, library for HTTP requests
 * `pyshp`, library for reading Shapefile
 * `rtree`, wrapper library for [libspatialindex](https://libspatialindex.org/) to build up R-tree index.
 * `nvector`, library that provides tools for solving common geographical questions
 * `geopy`, library for geocoding and distance computation
-* `PyGeodesy`, library for geodesy operations 
+* `PyGeodesy`, library for geodesy operations
+
+Running `python3.7 pip install dependencies.txt` will install above libraries, then follow [this](http://toblerity.org/rtree/install.html) instruction to have `libspatialindex` installed. For macOS users, run `brew install spatialindex` through `homebrew` will install this package.
+
+### How to run
+#### Coordination Conversion
+
+Say you have your Shapefiles for street and sidewalk in directories `ST_DB` and `SW_DB`, and want to output the converted result to `ST_OUT_PATH`, `SW_OUT_PATH`, respectively. Then you can run this command to convert both datasets:
+```
+python3 dataset_convert.py "ST_DB" "SW_DB" "ST_OUT_PATH" "SW_OUT_PATH"
+```
+
+#### Query Generation and Obtain Images
+
+(Under construction)
 
