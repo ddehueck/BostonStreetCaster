@@ -50,7 +50,7 @@ All the programs are developed under Python3.7, and requre these external librar
 First, run this command to install all dependencies:
 
 ```
-python3.7 -m pip install -r dependencies.txt
+>> python3.7 -m pip install -r dependencies.txt
 ```
 
 Then follow [this](http://toblerity.org/rtree/install.html) instruction to have `libspatialindex` installed. For macOS users (which is not covered from official website), run `brew install spatialindex` through `homebrew` to install this package.
@@ -60,7 +60,7 @@ Then follow [this](http://toblerity.org/rtree/install.html) instruction to have 
 
 Say you have your Shapefiles for street and sidewalk in directories `ST_DB` and `SW_DB`, and want to output the converted result to `ST_OUT_PATH`, `SW_OUT_PATH`, respectively. Then you can run this command to convert both datasets:
 ```
-python3 dataset_convert.py "ST_DB" "SW_DB" "ST_OUT_PATH" "SW_OUT_PATH"
+>> python3.7 dataset_convert.py "ST_DB" "SW_DB" "ST_OUT_PATH" "SW_OUT_PATH"
 ```
 
 #### Partitioning, Query Generation and Obtain Images
@@ -68,13 +68,13 @@ python3 dataset_convert.py "ST_DB" "SW_DB" "ST_OUT_PATH" "SW_OUT_PATH"
 To partition converted sidewalk datset and generate query parameters, use `query_generation.py` and run:
 
 ```
-python3.7 query_generation.py [YOUR_PARAMETERS...]
+>> python3.7 query_generation.py [YOUR_PARAMETERS...]
 ```
 
 For details about parameters, check them out by running:
 
 ```
-python3.7 query_generation.py -h
+>> python3.7 query_generation.py -h
 ```
 
 Running `query_generation` will output three text files:
@@ -98,7 +98,9 @@ Google's API require product key and signature secret for forming queries, so yo
 Suppose that you store all outputs from `query_generation` under `partitions` directory, and store the keys in `credentials.json`. Then running the following commands will randomly select 100 valid queries (out of 1000 samples) and store images obtained to `sample_output` directory (with *test_sample_* as filename prefix): 
 
 ```
-python3.7 query_sampling.py partitions/queries.txt partitions/metadata.txt 100 credentials.json partitions/samples.txt 1000
-python3.7 sample_retrive.py partitions/samples.txt credentials.json sample_output test_sample_ [-v]
+>> python3.7 query_sampling.py partitions/queries.txt partitions/metadata.txt 100 credentials.json partitions/samples.txt 1000
+...(some output)...
+>> python3.7 sample_retrive.py partitions/samples.txt credentials.json sample_output test_sample_ -v
+...
 ```
 
