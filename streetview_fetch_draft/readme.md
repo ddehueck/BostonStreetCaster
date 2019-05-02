@@ -6,13 +6,13 @@ In this document we'll describe how we preprocess dataset we're given, and deriv
 
 We got our sidewalk and street data from Boston Hack 2018's dataset. The whole dataset can be obtained from project description [here](https://docs.google.com/document/d/1jS3QsgjQLZyYoZzs0WbrA_SrOWAhEUv6Cc_a8X0oHJA/).
 
-The street dataset consists of line segments of streets in Boston; and sidewalk contains shape polygons of planned sidewalk blocks. Both datasets are using coordinates with *EPSG:6492* ([descriptions](https://epsg.io/6492)) projection settings. 
+The street dataset consists of line segments of streets in Boston; and sidewalk contains shape polygons of planned sidewalk blocks. Both datasets are using coordinates with *EPSG:6492* ([description](https://epsg.io/6492)) projection settings. 
 
 ### Coordinate Conversion
 
-Since Google's API only accept *WGS84* (worldwide coordinate system, [Ref](https://en.wikipedia.org/wiki/World_Geodetic_System)), while the original dataset use another coordinate system, we need to transform location coordinates beforehand. There are several Python libraries that supports coordinate conversion, such as `pyproj`. However, we found that result from local machine suffers from significant numeral error, which can't be directly applied in later tasks.
+Since Google's API only accept *WGS84* (worldwide coordinate system, [ref](https://en.wikipedia.org/wiki/World_Geodetic_System)), while the original dataset use another coordinate system, we need to transform location coordinates beforehand. There are several Python libraries that supports coordinate conversion, such as `pyproj`. However, we found that result from local machine suffers from significant numeral error, which can't be directly applied in later tasks.
 
-To address this issue, we use [epsg.io](http://epsg.io/)'s free API to obtain coordinates with higher precision [here](https://github.com/klokantech/epsg.io). We wrote a function that can convert a series of locations from one projection system to the other.
+To address this issue, we use [epsg.io](http://epsg.io/)'s free API to obtain coordinates with higher precision ([API description](https://github.com/klokantech/epsg.io)). We wrote a function that can convert a series of locations from one projection system to the other.
 
 ### Sidewalk Block Partition
 
@@ -22,7 +22,7 @@ The approximation algorithm is very simple, and based on the assumpiton that mos
 
 ### Street Matching and Camera Settings
 
-A problem of the dataset is that the sidewalk dataset doesn't provide any information about which road it belongs to. Also, we need to know relative position between street and sidewalk to make sure the camera is set up on the correct side of the sidewalk and obtain valid result. In spatial database, the basic way for various kinds of searching is to build up index for regtangualr bounding boxes of all the itmes, and work on relationship of bounding boxes before analyze the more detailed shapes inside. Another useful clue that can be used to match street and sidewalk is using angle difference between their heading directions, since idealy they're nearly parallel in directions.
+The main problem of the dataset is that the sidewalk dataset doesn't provide any information about which road it belongs to. Also, we need to know relative position between street and sidewalk to make sure the camera is set up on the correct side of the sidewalk and obtain valid result. In spatial database, the basic way for various kinds of searching is to build up index for regtangualr bounding boxes of all the itmes, and work on relationship of bounding boxes before analyze the more detailed shapes inside. Another useful clue that can be used to match street and sidewalk is using angle difference between their heading directions, since idealy they're nearly parallel in directions.
 
 So this is how we deal with this case. First, we build up an R-tree index for bounding boxes of all line segments in the street dataset, then use the center of sidewalk partition to do nearest-neighbor query for possible candidates, then use angle difference with block direction to find out the segment that best fits.
 
