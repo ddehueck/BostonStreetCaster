@@ -57,7 +57,22 @@ Say you have your Shapefiles for street and sidewalk in directories `ST_DB` and 
 python3 dataset_convert.py "ST_DB" "SW_DB" "ST_OUT_PATH" "SW_OUT_PATH"
 ```
 
-#### Query Generation and Obtain Images
+#### Partitioning, Query Generation and Obtain Images
 
-(Under construction)
+To partition converted sidewalk datset and generate query parameters, use `query_generation.py` and run:
+
+```
+python3.7 query_generation.py [YOUR_PARAMETERS...]
+```
+
+For details about parameters, check them out by running:
+
+```
+python3.7 query_generation.py -h
+```
+
+Running `query_generation` will output three text files:
+- `sidewalk_info.txt`: Information of sidewalk blocks, mainly about how many partitions are made for this block for querying.
+- `metadata.txt`: Metadata for partition queries, includeing their center position, heading direction and the matched street segment.
+- `queries.txt`: Query parameters for Google street view API (in JSON string format)
 
