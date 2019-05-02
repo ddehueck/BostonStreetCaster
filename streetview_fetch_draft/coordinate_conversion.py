@@ -21,7 +21,7 @@ class CoordinateConversionToolset():
     _URL_CONVERSION = "https://epsg.io/trans"
     _BULK_SIZE = 90
 
-    def __init__(self, input_file, output_file, source_code, target_code, xy_coordinate):
+    def __init__(self, input_file, output_file, source_code, target_code, xy_coordinate, record_map=None):
         """ Initialize conversion settings.
 
             Args:
@@ -30,12 +30,16 @@ class CoordinateConversionToolset():
                 source_code: (str) Projection system used by input data.
                 target_code: (str) Projection system to be output.
                 xy_coordinate: (bool) Whether input is of X-Y/Lon-Lat format.
+                record_map: (function(dict->dict)) function used to extract
+                    additional information from Shapefile record, which will
+                    be updated to JSON string of row data. 
         """
         self.input_file = input_file
         self.output_file = output_file
         self.source_code = source_code
         self.target_code = target_code
         self.xy_sys = xy_coordinate
+        self.rec_map = record_map
 
     def query_points(self, points, xy_coordinate=True):
         """ Obtain converted coordinates.
@@ -72,11 +76,14 @@ class CoordinateConversionToolset():
                 xy_coordinate - (bool) Whether input is of X-Y/Lon-Lat format
         """
         with shapefile.Reader(self.input_file) as s_file, open(self.output_file, "w") as fd_w:
-            for row_s in s_file.shapes():
+            for row_s, row_r in zip(s_file.shapes(), s_file.records()):
                 # Gather several rows into a bulk
                 row_points = row_s.points
                 converted_points = self.query_points(row_points, self.xy_sys)
-                write_content = json.dumps({"points": converted_points})
+                out_data_row = {"points": converted_points}
+                if self.rec_map:
+                    out_data_row.update(self.rec_map(row_r))
+                write_content = json.dumps(out_data_row)
                 fd_w.write(write_content + "\n")
                 sleep(0.08)
 
