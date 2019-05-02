@@ -30,6 +30,12 @@ So this is how we deal with this case. First, we build up an R-tree index for bo
 
 Other than solving camera heading, we need to decide other factors such as camera position, pitch rotation, and zooming for querying street view images, while guarantee the area we want appears is large enough on result image. However, obtaining the right camera settings is another researchable problem far beyond our goal, so we just set all camera positions to be away from partition centner at a fixed distance, and use default value in Google's API for other settings.
 
+### Future Work
+
+We're told that the original datset for sidewalks [Link](https://data.boston.gov/dataset/sidewalk-inventory) includes more attributes that are crucial to refine above tasks, such as street it belongs to and sidewalk width. Further update will combine this dataset and obtain more accurate.
+
+Also, the assumptions we used for generating camera settings can fail in some cases, and there are still lots of possible improvement can be done in the future, such as approximating other parameters for the query. 
+
 ### Dependencies
 
 * `requests`, library for HTTP requests
