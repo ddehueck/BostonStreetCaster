@@ -1,0 +1,6 @@
+requests
+pyshp
+rtree
+nvector
+geopy
+PyGeodesy
