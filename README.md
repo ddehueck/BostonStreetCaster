@@ -17,8 +17,8 @@ As the ultimate goal of this project is to identify damaged sidewalk all across 
 
 **The Machine Learning (ML) Models:** Three ML models were trained: two segmentation models and one standard CNN(ResNet) to act as a damage classifier. Data is first fed through a segmentation model to isolate the sidewalk and is then run through the damage classifer to assess any potential issues in the sidewalk.
 
-*[See here for more info on the segmentation model.](https://github.com/ddehueck/BostonStreetCaster/tree/master/segment_images)*
-*[See here for more info on the damage classification model.](#)*
+- *[See here for more info on the segmentation models.](https://github.com/ddehueck/BostonStreetCaster/tree/master/ml_models/segment_images)*
+- *[See here for more info on the damage classification model.](https://github.com/ddehueck/BostonStreetCaster/tree/master/ml_models/resnet-benchmark)*
 
 **The Dataset:** To build a dataset of damaged sidewalks we contacted a [group](https://projectsidewalk.io/) at the University of Washington that uses Google StreetView (GSV) to find accessibility issues. With their help we were able to collect ~2,000 images of damaged sidewalks. Another ~2,000 images of undamaged sidewalks were randomly sampled from Boston streets to create a balanced dataset. All images were then segmented so any subsequently trained models only learn on sidewalks.
 
