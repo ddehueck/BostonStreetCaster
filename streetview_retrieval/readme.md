@@ -30,7 +30,7 @@ Other than solving camera heading, we need to decide other factors such as camer
 
 ### Future Work
 
-We're told that the original datset for sidewalks [Link](https://data.boston.gov/dataset/sidewalk-inventory) has more attributes that are crucial to refine all above tasks, such as street belonging and sidewalk width. Future updates will combine this dataset so that we can obtain more accurate camera position and settings.
+We're told that the original datset for sidewalks [(Link)](https://data.boston.gov/dataset/sidewalk-inventory) has more attributes that are crucial to refine all above tasks, such as street belonging and sidewalk width. Future updates will combine this dataset so that we can obtain more accurate camera position and settings.
 
 Also, the assumptions we used for generating camera settings can fail in some cases, and there are still lots of possible improvement can be done in the future, like approximating parameters other than position and heading for the query. 
 
@@ -51,7 +51,7 @@ First, run this command to install all dependencies:
 >> python3.7 -m pip install -r dependencies.txt
 ```
 
-Then follow [this](http://toblerity.org/rtree/install.html) instruction to have `libspatialindex` installed. For macOS users (which is not covered from official website), run `brew install spatialindex` through `homebrew` to install this package.
+Then follow [this](http://toblerity.org/rtree/install.html) instruction to have `libspatialindex` installed. For macOS users (which is not covered in official website), run `brew install spatialindex` through `homebrew` to install this package.
 
 ### How to run
 #### Coordination Conversion
