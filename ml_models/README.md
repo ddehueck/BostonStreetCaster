@@ -10,7 +10,7 @@ We solve two problems with the ML models in this repo: sidewalk segmentation and
 
 We treat this problem as a standard image classification problem and use the [ResNet architecture](https://arxiv.org/pdf/1512.03385.pdf) from the PyTorch model zoo. The model was trained on a custom made dataset - [see here for more info on the dataset](https://github.com/ddehueck/BostonStreetCaster/blob/master/ml_models/DATASET-README.md)
 
-[See here for a futher breakdown of the ML models.](#)
+[See here for a futher breakdown of the classifcation model.](#)
 
 ### Sidewalk Segmentation
 
