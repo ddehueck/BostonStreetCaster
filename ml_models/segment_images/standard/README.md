@@ -1,10 +1,5 @@
-# BostonStreetCaster
-Sidewalk segmentation and analysis project for the city of Boston
+# BostonStreetCaster Standard Segmentation Model
 
-### To segment images of sidewalks:
+This segmentation model was modified from https://github.com/fregu856/deeplabv3 to fit into our specific sidewalk segmentation model. 
 
-1. Place images into a **subdirectory** of ```/to-segment``` - **Total number of images must be a multiple of 2**
-2. Run ```$ python segment_sidewalk.py```
-3. Segmented images should be in the the ```segmented-images``` directory
-
-*Note: You will need to change some absolute paths in a couple folders - TODO*
+See the linked repo for more info on what is contained here.
