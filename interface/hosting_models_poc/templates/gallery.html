@@ -2,7 +2,8 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>BostonStreetCaster POC</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css')}}">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"
           integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
 
@@ -13,16 +14,17 @@
         <div class="row">
 
             <div class="col-lg-12">
-                <h1 class="page-header">Sidewalk Segmentation</h1>
+                <h1 class="page-header">BostonStreetCaster POC</h1>
             </div>
-            {{image_names}}
             <hr>
             {% for image_name in image_names %}
             <div class="col-lg-3 col-md-4 col-xs-6 thumb">
                 <img class="img-responsive" src=" {{url_for('send_image', filename=image_name)}}">
+                <p>{{image_name}}</p>
             </div>
             {% endfor %}
         </div>
+        <a id="next-action" href="{{url_for(next_page)}}">{{next_page_text}}</a>
     </div>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"
             integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS"

@@ -1,0 +1,21 @@
+
+#next-action {
+    padding: 10px 20px;
+    background: #0984e3;
+    border-radius: 3px;
+    color: #fff;
+}
+
+#next-action:active {
+    background: #a29bfe;
+}
+
+.row {
+    margin-bottom: 20px;
+}
+
+.prediction {
+    padding: 7px 14px;
+    background: #6c5ce7;
+    color: #fff;
+}
