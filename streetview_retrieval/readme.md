@@ -63,7 +63,7 @@ Say you have your Shapefiles for street and sidewalk in directories `ST_DB` and 
 >> python3.7 dataset_convert.py "ST_DB" "SW_DB" "ST_OUT_PATH" "SW_OUT_PATH"
 ```
 
-#### Partitioning and Query Generation
+#### Partitioning, Query Generation and Obtain Images
 
 To partition converted sidewalk datset and generate query parameters, use `query_generation.py` and run:
 
@@ -82,11 +82,9 @@ Running `query_generation` will output three text files:
 - `metadata.txt`: Metadata for partition queries, includeing their center position, heading direction and the matched street segment.
 - `queries.txt`: Query parameters for Google street view API (in JSON string format)
 
-#### Street View Retrieval
+As for obtaining sidewalk from queries generated, right now we haven't solution to obtain. Since Google's street view API is chraged service, user may consider not requesting all images at once.
 
-Unfortunately, as for obtaining sidewalk from queries generated, right now we haven't have a nice solution to obtain images from generated query settings. Since Google's street view API is chraged service, user may consider just requesting a small portion of images, or cache previous results (especially the unique image ID relates to the image) to avoid redundancy (along with higher overall cost).
-
-Still, if you'd like to fetch small samples randomly, then you can try `sample_retrive.py` and `query_sampling.py`, which samples from output result above, filter out ones with valid result from Google's API, and query street view images from the samples.
+However, if you'd like to sample from the set of all queries, then you can try `sample_retrive.py` and `query_sampling.py`, which samples from output result above, filter out ones with valid result from Google's API, and query street view images from the samples.
 
 Google's API require product key and signature secret for forming queries, so you need to store your authetication credentials in a JSON file with this format:
 
