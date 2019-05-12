@@ -10,7 +10,7 @@ We solve two problems with the ML models in this repo: sidewalk segmentation and
 
 We treat this problem as a standard image classification problem and use the [ResNet architecture](https://arxiv.org/pdf/1512.03385.pdf) from the PyTorch model zoo. The model was trained on a custom made dataset - [see here for more info on the dataset](https://github.com/ddehueck/BostonStreetCaster/blob/master/ml_models/DATASET-README.md)
 
-[See here for a futher breakdown of the classifcation model.](#)
+[See here for a futher breakdown of the classifcation model.](https://github.com/ddehueck/BostonStreetCaster/tree/master/ml_models/resnet-benchmark)
 
 ### Sidewalk Segmentation
 
@@ -20,5 +20,5 @@ We treat this problem as a standard image classification problem and use the [Re
 
 We trained two models, a standard model and a liberal model. The standard model was trained with standard class balances on the [Cityscapes Dataset](https://www.cityscapes-dataset.com/) while the liberal model was trained on the same dataset but with a class balance equaling the likelihood that a pixel is a sidewalk vs not a sidewalk (this leads to a higher false positive rate).
 
-- [See here for a futher breakdown on the standard model.](#)
-- [See here for a futher breakdown on the liberal model.](#)
+- [See here for a futher breakdown on the standard model.](https://github.com/ddehueck/BostonStreetCaster/tree/master/ml_models/segment_images/standard)
+- [See here for a futher breakdown on the liberal model.](https://github.com/ddehueck/BostonStreetCaster/tree/master/ml_models/segment_images/liberal)
