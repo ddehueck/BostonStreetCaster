@@ -31,3 +31,9 @@ Our prototype interface allows users to upload images to a server which then seg
 
 *[Access more info on the interface here.](https://github.com/ddehueck/BostonStreetCaster/tree/master/interface)*
 
+
+#### Special Thanks:
+
+Thank you to [Project Sidewalk](https://projectsidewalk.io/) for access the data!
+
+Thank you to the following repos that were modified for our particular ML models. https://github.com/jfzhang95/pytorch-deeplab-xception and https://github.com/fregu856/deeplabv3.
