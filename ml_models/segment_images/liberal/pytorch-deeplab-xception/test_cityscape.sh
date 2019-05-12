@@ -1,0 +1,1 @@
+python eval.py --dataset cityscapes --use-balanced-weights --backbone xception --resume run/cityscapes/deeplab-xception/model_best.pth.tar

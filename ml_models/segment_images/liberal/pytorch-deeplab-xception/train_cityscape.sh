@@ -1,0 +1,1 @@
+python train.py --dataset cityscapes --use-balanced-weights --backbone xception

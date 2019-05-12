@@ -1,0 +1,30 @@
+Epoch: 1 | loss: 0.728973
+Validation Accuracy of the network: 96 %
+Epoch: 2 | loss: 0.156756
+Validation Accuracy of the network: 95 %
+Epoch: 3 | loss: 0.153686
+Validation Accuracy of the network: 95 %
+Epoch: 4 | loss: 0.108157
+Validation Accuracy of the network: 94 %
+Epoch: 5 | loss: 0.078024
+Validation Accuracy of the network: 96 %
+Epoch: 6 | loss: 0.065566
+Validation Accuracy of the network: 96 %
+Epoch: 7 | loss: 0.053740
+Validation Accuracy of the network: 95 %
+Epoch: 8 | loss: 0.050390
+Validation Accuracy of the network: 97 %
+Epoch: 9 | loss: 0.022162
+Validation Accuracy of the network: 96 %
+Epoch: 10 | loss: 0.028244
+Validation Accuracy of the network: 96 %
+Epoch: 11 | loss: 0.019374
+Validation Accuracy of the network: 96 %
+Epoch: 12 | loss: 0.052693
+Validation Accuracy of the network: 96 %
+Epoch: 13 | loss: 0.034570
+Validation Accuracy of the network: 97 %
+Epoch: 14 | loss: 0.028134
+Validation Accuracy of the network: 97 %
+Epoch: 15 | loss: 0.026875
+Validation Accuracy of the network: 94 %
